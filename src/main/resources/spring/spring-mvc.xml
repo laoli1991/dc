@@ -18,25 +18,23 @@
 	   http://www.springframework.org/schema/mvc
 	   http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-    <mvc:annotation-driven />
-    <mvc:default-servlet-handler />
-    <context:component-scan base-package="com.idoc" />
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <context:component-scan base-package="com.idoc"/>
 
-    <bean
-            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="page/app/html/" />
-        <property name="suffix" value=".html" />
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="page/app/html/"/>
+        <property name="suffix" value=".html"/>
     </bean>
 
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
-            <bean
-                    class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"
-                    p:supportedMediaTypes="*/*" />
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"
+                  p:supportedMediaTypes="*/*"/>
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 
     <bean id="propertyConfigurer" class="com.idoc.utils.PropertiesUtils">
