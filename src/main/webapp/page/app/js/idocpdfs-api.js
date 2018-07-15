@@ -17,6 +17,24 @@ app.service("idocpdfsService", ['$http', '$q', function($http, $q) {
             });
         return deferred.promise;
     };
+    
+    
+    this.getLatestFileDate = function() {
+        var deferred = $q.defer();
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPaht = curWwwPath.substring(0, pos);
+        var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+        $http.get(localhostPaht + projectName + "/getLatestFileDate")
+            .success(function(data) {
+                deferred.resolve(data);
+            })
+            .error(function(data) {
+                deferred.reject(data);
+            });
+        return deferred.promise;
+    };
 
 
     this.getPageResponseBean = function(fromDate, toDate, name, pageNow, pageSize) {

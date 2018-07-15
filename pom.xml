@@ -11,7 +11,7 @@
 
     <dependencies>
 
-        <!-- spring start.... -->
+        <!-- spring start.... dd-->
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -148,6 +148,8 @@
         <dependency>
             <groupId>com.github.noraui</groupId>
             <artifactId>ojdbc7</artifactId>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/ojdbc7-12.1.0.2.jar</systemPath>
             <version>12.1.0.2</version>
         </dependency>
 
@@ -316,6 +318,8 @@
         <dependency>
             <groupId>com.github.noraui</groupId>
             <artifactId>ojdbc7</artifactId>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/ojdbc7-12.1.0.2.jar</systemPath>
             <version>12.1.0.2</version>
         </dependency>
 
@@ -351,6 +355,26 @@
                     <encoding>utf-8</encoding>
                 </configuration>
             </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>${project.basedir}/libs</directory>
+                            <targetPath>WEB-INF/lib</targetPath>
+                            <filtering>false</filtering>
+                            <includes>
+                                <include>**/*.jar</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                </configuration>
+                <version>2.1.1</version>
+            </plugin>
+
         </plugins>
     </build>
 

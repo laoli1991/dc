@@ -15,7 +15,7 @@ public class LoaderMapping {
 	
 	 static{
 		    Class clazz = LoaderMapping.class;
-	        InputStream inputestream = clazz.getResourceAsStream("loader.properties");
+	        InputStream inputestream = clazz.getResourceAsStream("/loader.properties");
 		    Properties prop = new Properties();      
 		    try {
 				prop.load(inputestream);

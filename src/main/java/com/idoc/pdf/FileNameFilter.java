@@ -55,7 +55,7 @@ public class FileNameFilter {
 	
 	 static{
 		    Class clazz = LoaderMapping.class;
-	        InputStream inputestream = clazz.getResourceAsStream("filefilter.properties");
+	        InputStream inputestream = clazz.getResourceAsStream("/filefilter.properties");
 		    Properties prop = new Properties();      
 		    try {
 				prop.load(inputestream);

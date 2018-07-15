@@ -17,7 +17,7 @@ public class CurrencyMapping {
 	
 	 static{
 		    Class clazz = CurrencyMapping.class;
-	        InputStream inputestream = clazz.getResourceAsStream("currency.properties");
+	        InputStream inputestream = clazz.getResourceAsStream("/currency.properties");
 		    Properties prop = new Properties();      
 		    try {
 				prop.load(inputestream);

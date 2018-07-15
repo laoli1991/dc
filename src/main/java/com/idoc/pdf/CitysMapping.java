@@ -15,8 +15,8 @@ public class CitysMapping {
 	
 	 static{
 		    Class clazz = CitysMapping.class;
-	        InputStream inputestream = clazz.getResourceAsStream("citys.properties");
-		    Properties prop = new Properties();      
+	        InputStream inputestream = clazz.getResourceAsStream("/citys.properties");
+		    Properties prop = new Properties();
 		    try {
 				prop.load(inputestream);
 				inputestream.close();
@@ -34,6 +34,10 @@ public class CitysMapping {
 	 public static String getCity(String key){
 		 return citys.get(key) ;
 	 }
+
+	public static void main(String[] args) {
+		System.out.println(CitysMapping.getCity("NP"));
+	}
 
 }
  

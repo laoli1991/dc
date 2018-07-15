@@ -72,7 +72,7 @@ public class PdfService {
 		//AEai7814_20170315_bspR3922.781.pdf
 		//ITia7814_20170107_bspR3920.781.pdf
 	    String path = "C:/Users/liyang/Desktop/2017unzip/201707月账单/KTM/NP_FCAIBILLDET_B_781_0903_NPR.pdf" ;
-	    path = "C:/Users/liyang/Desktop/HK_FCAIBILLDET_781_20180104.PDF" ;
+	    path = "C:\\Users\\Jeff Doyle\\Desktop\\KR_FCAIBILLDET_781_20180701.pdf" ;
 		//path = "C:/Users/liyang/Desktop/2017unzip/201710月账单/MNL/PH_FCAIBILLDET_B_781_1004_PHP.pdf" ;
 	    List<ResponseBean> responseBean = null ;
         responseBean = PdfService.calc(path) ;

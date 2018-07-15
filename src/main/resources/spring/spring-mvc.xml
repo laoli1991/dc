@@ -45,4 +45,29 @@
         </property>
     </bean>
 
+    <bean id="SpringQtzJob" class="com.idoc.quartz.FilePdfQuartz"/>
+    <bean id="SpringQtzJobMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="SpringQtzJob"/>
+        </property>
+        <property name="targetMethod">
+            <value>refreshIdocPdfs</value>
+        </property>
+    </bean>
+
+
+    <bean id="CronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="SpringQtzJobMethod"></property>
+        <property name="cronExpression" value="0 28 16 * * ?"></property>   <!-- 0 0/20 * * * ?  -->
+    </bean>
+
+
+    <bean id="SpringJobSchedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="CronTriggerBean"/>
+            </list>
+        </property>
+    </bean>
+
 </beans>

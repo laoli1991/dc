@@ -15,6 +15,13 @@ app.controller("idocpdfsCtrl", ["$scope", '$http', '$q', "idocpdfsService", func
         }, function(data) {
             $defer.resolve([]);
         });
+        
+        idocpdfsService.getLatestFileDate().then(function(data) {
+            $scope.latestFileDate = data.latestFileDate ; 
+        }, function(data) {
+            $defer.resolve([]);
+        });
+        
     };
     $scope.init();
 
@@ -330,7 +337,7 @@ app.controller("idocpdfsCtrl", ["$scope", '$http', '$q', "idocpdfsService", func
         var pos = curWwwPath.indexOf(pathName);
         var localhostPaht = curWwwPath.substring(0, pos);
         var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
-        $http.get(localhostPaht + projectName + "/downloadFileByresponseBean?fileDate=" + responseBean.fileDate + "&fileName=" + responseBean.name, { responseType: 'arraybuffer' })
+        $http.get(localhostPaht + projectName + "/downloadFileByresponseBean?path=" + responseBean.path , { responseType: 'arraybuffer' })
             .success(function(data, status, headers) {
                 var octetStreamMime = 'application/octet-stream';
                 var success = false;
